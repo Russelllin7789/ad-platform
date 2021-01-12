@@ -17,15 +17,17 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  background-color: #03396a;
 }
 
 .brand-name-wrapper {
   background-color: #ffe66f;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   width: 90%;
   height: 4rem;
   line-height: 4rem;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .brand-name {
@@ -33,6 +35,13 @@
   font-size: 1.2rem;
 }
 
+.nav-item-area {
+  margin: 0;
+  padding: 0;
+}
+
 .nav-item {
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 </style>

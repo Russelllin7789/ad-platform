@@ -11,4 +11,8 @@
 .table-container {
   height: 100%;
 }
+
+.table-title {
+  margin-top: 1rem;
+}
 </style>
