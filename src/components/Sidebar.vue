@@ -17,6 +17,13 @@
       <li class="nav-item">
         <img src="../assets/mail.svg" alt="mail-image" class="image-mail" />
       </li>
+      <li class="nav-item">
+        <img
+          src="../assets/darkmode-off.svg"
+          alt="darkmode-off-image"
+          class="image-darkmode-off"
+        />
+      </li>
     </ul>
   </div>
 </template>
