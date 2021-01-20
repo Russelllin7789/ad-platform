@@ -36,32 +36,34 @@
           </tr>
         </thead>
         <tbody class="table-body">
-          <tr class="table-row">
+          <tr class="table-row" v-for="ad in ads" :key="ad.id">
             <td class="table-cell table-cell-checkbox">
               <input type="checkbox" />
             </td>
-            <td class="table-cell table-cell-id">ID</td>
-            <td class="table-cell table-cell-name">Name</td>
-            <td class="table-cell table-cell-description">Description</td>
-            <td class="table-cell table-cell-price">Price</td>
-            <td class="table-cell table-cell-starttime">Start Time</td>
-            <td class="table-cell table-cell-endtime">End Time</td>
+            <td class="table-cell table-cell-id">{{ ad.id }}</td>
+            <td class="table-cell table-cell-name">{{ ad.name }}</td>
+            <td class="table-cell table-cell-description">
+              {{ ad.description }}
+            </td>
+            <td class="table-cell table-cell-price">{{ ad.price }}</td>
+            <td class="table-cell table-cell-starttime">{{ ad.startTime }}</td>
+            <td class="table-cell table-cell-endtime">{{ ad.endTime }}</td>
             <td class="table-cell table-cell-action">
               <img
                 class="cell-action-icon"
                 src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/menu.svg"
-                id="action-input-1"
+                :id="`icon-${ad.id}`"
                 alt="menu"
                 @click="toggleMenu"
               />
               <!-- menu -->
               <!-- 運用 aria 屬性，增進網頁無障礙的使用體驗，labelledby 可綁定 toogle 元素的 id -->
               <div
-                class="action-menu hidden"
+                class="action-menu"
                 role="dialog"
                 aria-modal="true"
-                aria-labelledby="action-input-1"
-                id="action-menu-1"
+                :aria-labelledby="`icon-${ad.id}`"
+                v-if="showDetail"
               >
                 <menu class="menu-body">
                   <menuitem class="menu-item">
@@ -96,12 +98,67 @@
 </template>
 
 <script>
+const dummyAds = [
+  {
+    id: 1,
+    name: "M18-21 + Taipei",
+    description: "潮車 + slogan",
+    price: 20000,
+    startTime: "2021-01-18",
+    endTime: "2021-01-25",
+  },
+  {
+    id: 2,
+    name: "F18-21 + Taipei",
+    description: "洋裝 + slogan",
+    price: 50000,
+    startTime: "2021-01-13",
+    endTime: "2021-01-25",
+  },
+  {
+    id: 3,
+    name: "M25-30 + Taipei",
+    description: "工作 + slogan",
+    price: 35000,
+    startTime: "2021-01-01",
+    endTime: "2021-01-25",
+  },
+  {
+    id: 4,
+    name: "F35-45 + Taipei",
+    description: "家電 + slogan",
+    price: 70000,
+    startTime: "2020-11-11",
+    endTime: "2021-01-25",
+  },
+  {
+    id: 5,
+    name: "M35-45 + Taipei",
+    description: "房子 + slogan",
+    price: 150000,
+    startTime: "2021-01-19",
+    endTime: "2021-01-25",
+  },
+];
+
 export default {
+  data() {
+    return {
+      ads: [],
+      showDetail: false,
+    };
+  },
   methods: {
     toggleMenu() {
-      const menu = document.querySelector("#action-menu-1");
-      menu.classList.toggle("hidden");
+      this.showDetail = !this.showDetail;
     },
+    // 模擬串接 API
+    fetchAds() {
+      this.ads = [...dummyAds];
+    },
+  },
+  created() {
+    this.fetchAds();
   },
 };
 </script>
@@ -179,9 +236,9 @@ export default {
   right: 0;
 }
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
 .menu-body {
   display: flex;
