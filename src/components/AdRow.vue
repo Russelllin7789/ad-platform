@@ -29,20 +29,20 @@
         v-if="showDetail"
       >
         <menu class="menu-body">
-          <menuitem class="menu-item">
+          <menuitem class="menu-item" @click="handleDuplicate(ad.id)">
             <img
               src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/duplicate.svg"
               class="menu-item-icon"
             />
             <span>Duplicate</span>
           </menuitem>
-          <menuitem class="menu-item">
+          <!-- <menuitem class="menu-item">
             <img
               src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/edit.svg"
               class="menu-item-icon"
             />
             <span>Edit</span>
-          </menuitem>
+          </menuitem> -->
           <menuitem class="menu-item" @click="handleDelete(ad.id)">
             <img
               src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/delete.svg"
@@ -170,8 +170,10 @@ export default {
   top: 100%;
   right: 50%;
   width: 140px;
-  height: 120px;
+  height: 90px;
   background: var(--white);
   border: 1px solid var(--border-color);
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 </style>

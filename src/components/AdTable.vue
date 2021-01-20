@@ -41,6 +41,7 @@
             :key="ad.id"
             :initial-ad="ad"
             @handle-delete="handleDelete"
+            @handle-duplicate="handleDuplicate"
           />
         </tbody>
       </table>
@@ -109,6 +110,17 @@ export default {
     },
     handleDelete(adId) {
       this.ads = this.ads.filter((ad) => ad.id !== adId);
+    },
+    handleDuplicate(adId) {
+      let data = dummyAds[adId - 1];
+      this.ads.push({
+        id: this.ads.length + 1,
+        name: data.name,
+        description: data.description,
+        price: data.price,
+        startTime: data.startTime,
+        endTime: data.endTime,
+      });
     },
   },
   created() {
