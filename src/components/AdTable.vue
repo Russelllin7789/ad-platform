@@ -154,6 +154,7 @@
 
 .table-cell-action {
   width: 100px;
+  position: relative;
 }
 
 .cell-action-icon,
@@ -164,5 +165,37 @@
 .header-cell-icon-right {
   position: absolute;
   right: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu-body {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+}
+
+.menu-item-icon {
+  margin-right: 14px;
+}
+
+.action-menu {
+  z-index: 999;
+  position: absolute;
+  top: 100%;
+  right: 50%;
+  width: 140px;
+  height: 120px;
+  background: var(--white);
+  border: 1px solid var(--border-color);
 }
 </style>
