@@ -16,6 +16,7 @@
               <img
                 class="header-cell-icon header-cell-icon-right"
                 src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
+                @click="handleSortByPrice"
               />
             </th>
             <th class="table-cell table-cell-starttime">
@@ -23,6 +24,7 @@
               <img
                 class="header-cell-icon header-cell-icon-right"
                 src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
+                @click="handleSortByStartTime"
               />
             </th>
             <th class="table-cell table-cell-endtime">
@@ -120,6 +122,17 @@ export default {
         price: data.price,
         startTime: data.startTime,
         endTime: data.endTime,
+      });
+    },
+    handleSortByPrice() {
+      this.ads = this.ads.sort((a, b) => {
+        return a.price - b.price;
+      });
+    },
+    handleSortByStartTime() {
+      this.ads = this.ads.sort((a, b) => {
+        console.log(a.startTime);
+        return a.startTime - b.startTime;
       });
     },
   },
