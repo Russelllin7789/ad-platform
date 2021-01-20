@@ -52,6 +52,7 @@
                 src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/menu.svg"
                 id="action-input-1"
                 alt="menu"
+                @click="toggleMenu"
               />
               <!-- menu -->
               <!-- 運用 aria 屬性，增進網頁無障礙的使用體驗，labelledby 可綁定 toogle 元素的 id -->
@@ -93,6 +94,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    toggleMenu() {
+      const menu = document.querySelector("#action-menu-1");
+      menu.classList.toggle("hidden");
+    },
+  },
+};
+</script>
 
 <style scoped>
 .table-container {
