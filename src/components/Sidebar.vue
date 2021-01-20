@@ -63,12 +63,13 @@
 
 .nav-item {
   width: 100%;
-  margin-bottom: 2.5rem;
+  margin-bottom: 5rem;
 }
 
 .image-frame:hover,
 .image-folder:hover,
-.image-mail:hover {
+.image-mail:hover,
+.image-darkmode-off:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
