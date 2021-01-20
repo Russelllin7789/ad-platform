@@ -2,44 +2,62 @@
   <div class="table-container">
     <h1 class="table-title">Campaign</h1>
     <div class="table-area">
-      <thead>
-        <tr class="table__header table__row">
-          <th class="table__cell table__cell--checkbox">
-            <input type="checkbox" />
-          </th>
-          <th class="table__cell table__cell--id">ID</th>
-          <th class="table__cell table__cell--name">名字</th>
-          <th class="table__cell table__cell--advertiser">
-            <span class="cell__advertiser__line">Advertiser</span>
-            <span class="cell__advertiser__line cell__advertiser__line--group"
-              >Group</span
-            >
-          </th>
-          <th class="table__cell table__cell--description">Descripton</th>
-          <th class="table__cell table__cell--price">
-            <span>Price</span>
-            <img
-              class="header__cell__icon header__cell__icon--right"
-              src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
-            />
-          </th>
-          <th class="table__cell table__cell--starttime">
-            <span>Start Time</span>
-            <img
-              class="header__cell__icon header__cell__icon--right"
-              src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
-            />
-          </th>
-          <th class="table__cell table__cell--endtime">
-            <span>End Time</span>
-            <img
-              class="header__cell__icon header__cell__icon--right"
-              src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
-            />
-          </th>
-          <th class="table__cell table__cell--action">Action</th>
-        </tr>
-      </thead>
+      <table class="main-table">
+        <thead>
+          <tr class="table-header table-row">
+            <th class="table-cell table-cell-checkbox">
+              <input type="checkbox" />
+            </th>
+            <th class="table-cell table-cell-id">ID</th>
+            <th class="table-cell table-cell-name">Name</th>
+            <th class="table-cell table-cell-description">Descripton</th>
+            <th class="table-cell table-cell-price">
+              <span>Price</span>
+              <img
+                class="header-cell-icon header-cell-icon-right"
+                src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
+              />
+            </th>
+            <th class="table-cell table-cell-starttime">
+              <span>Start Time</span>
+              <img
+                class="header-cell-icon header-cell-icon-right"
+                src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
+              />
+            </th>
+            <th class="table-cell table-cell-endtime">
+              <span>End Time</span>
+              <img
+                class="header-cell-icon header-cell-icon-right"
+                src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
+              />
+            </th>
+            <th class="table-cell table-cell-action">Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <tr class="table-row">
+            <td class="table-cell table-cell-checkbox">
+              <input type="checkbox" />
+            </td>
+            <td class="table-cell table-cell-id">ID</td>
+            <td class="table-cell table-cell-name">Name</td>
+            <td class="table-cell table-cell-description">Description</td>
+            <td class="table-cell table-cell-price">Price</td>
+            <td class="table-cell table-cell-starttime">Start Time</td>
+            <td class="table-cell table-cell-endtime">End Time</td>
+            <td class="table-cell table-cell-action">
+              <img
+                class="cell-action-icon"
+                src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/menu.svg"
+                id="action-input-1"
+                alt="menu"
+              />
+              <!-- menu -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -51,11 +69,68 @@
 }
 
 .table-title {
-  margin-top: 1rem;
+  margin: 1rem 0 1rem 0;
 }
 
-.table__header {
+.table-header {
   background: var(--header-color);
   color: var(--header-text-color);
+}
+
+.table-row {
+  height: 50px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table-cell {
+  text-align: center;
+}
+
+.table-cell-checkbox {
+  width: 50px;
+}
+
+.table-cell-id {
+  width: 80px;
+}
+
+.table-cell-name,
+.table-cell-advertiser,
+.table-cell-price,
+.table-cell-starttime,
+.table-cell-endtime {
+  width: 140px;
+}
+
+.table-cell-price,
+.table-cell-starttime,
+.table-cell-endtime {
+  position: relative;
+}
+
+.cell-advertiser-line {
+  display: block;
+}
+
+.cell-advertiser-line-group {
+  color: var(--table-grey-text);
+}
+
+.table-cell-description {
+  width: 200px;
+}
+
+.table-cell-action {
+  width: 100px;
+}
+
+.cell-action-icon,
+.header-cell-icon {
+  cursor: pointer;
+}
+
+.header-cell-icon-right {
+  position: absolute;
+  right: 0;
 }
 </style>
