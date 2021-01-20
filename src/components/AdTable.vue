@@ -32,6 +32,7 @@
               <img
                 class="header-cell-icon header-cell-icon-right"
                 src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
+                @click="handleSortByEndTime"
               />
             </th>
             <th class="table-cell table-cell-action">Action</th>
@@ -53,6 +54,8 @@
 
 <script>
 import AdRow from "../components/AdRow";
+import dayjs from "dayjs";
+
 const dummyAds = [
   {
     id: 1,
@@ -84,7 +87,7 @@ const dummyAds = [
     description: "家電 + slogan",
     price: 70000,
     startTime: "2020-11-11",
-    endTime: "2021-01-25",
+    endTime: "2021-02-25",
   },
   {
     id: 5,
@@ -92,7 +95,7 @@ const dummyAds = [
     description: "房子 + slogan",
     price: 150000,
     startTime: "2021-01-19",
-    endTime: "2021-01-25",
+    endTime: "2021-01-20",
   },
 ];
 
@@ -131,8 +134,12 @@ export default {
     },
     handleSortByStartTime() {
       this.ads = this.ads.sort((a, b) => {
-        console.log(a.startTime);
-        return a.startTime - b.startTime;
+        return dayjs(a.startTime) - dayjs(b.startTime);
+      });
+    },
+    handleSortByEndTime() {
+      this.ads = this.ads.sort((a, b) => {
+        return dayjs(a.endTime) - dayjs(b.endTime);
       });
     },
   },
