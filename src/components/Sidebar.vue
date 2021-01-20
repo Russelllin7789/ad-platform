@@ -5,7 +5,15 @@
     </div>
     <ul class="nav-item-area">
       <li class="nav-item">
-        <img src="../assets/frame.svg" alt="frame-image" class="image-frame" />
+        <router-link class="frame" :to="{ name: 'ad-platform' }">
+          <img
+            src="../assets/frame.svg"
+            alt="frame-image"
+            class="image-frame"
+            id="image-frame"
+            @click="toggleActive"
+          />
+        </router-link>
       </li>
       <li class="nav-item">
         <img
@@ -17,16 +25,44 @@
       <li class="nav-item">
         <img src="../assets/mail.svg" alt="mail-image" class="image-mail" />
       </li>
+      <!-- dark mode toggle -->
       <li class="nav-item">
-        <img
-          src="../assets/darkmode-off.svg"
-          alt="darkmode-off-image"
-          class="image-darkmode-off"
+        <label class="sidebar-darkmode-label" for="dark-mode-toggle"></label>
+        <input
+          type="checkbox"
+          class="sidebar-darkmode-input"
+          id="dark-mode-toggle"
+          @change="toggleDarkMode"
         />
       </li>
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    toggleActive() {
+      const frame = document.getElementById("image-frame");
+      frame.classList.toggle("active");
+    },
+    toggleDarkMode() {
+      // target the switch element
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      // toggle handler
+      const darkModeToggleHandler = (event) => {
+        if (event.target.checked) {
+          document.documentElement.setAttribute("theme", "dark");
+        } else {
+          document.documentElement.setAttribute("theme", "light");
+        }
+      };
+      // bind the event
+      darkModeToggle.addEventListener("change", darkModeToggleHandler);
+    },
+  },
+};
+</script>
 
 <style scoped>
 .nav-area {
@@ -34,7 +70,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: #03396a;
+  background: var(--main-dark);
 }
 
 .brand-name-wrapper:hover {
@@ -72,5 +108,21 @@
 .image-darkmode-off:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.active {
+  transform: scale(1.5);
+}
+
+.sidebar-darkmode-label {
+  background: var(--darkmode-toggle-url);
+  background-size: 100% 100%;
+  cursor: pointer;
+  height: 36px;
+  width: 100%;
+}
+
+.sidebar-darkmode-input {
+  display: none;
 }
 </style>

@@ -4,7 +4,7 @@
     <div class="table-area">
       <table class="main-table">
         <thead>
-          <tr class="table-header table-row">
+          <tr class="table-header">
             <th class="table-cell table-cell-checkbox">
               <input type="checkbox" />
             </th>
@@ -151,26 +151,26 @@ export default {
 
 <style scoped>
 .table-container {
+  background: var(--background-grey);
   height: 100%;
-  padding: 2rem 2.5rem 1rem 1rem;
+  padding: 0 0 0 1rem;
 }
 
 .table-title {
-  margin: 1rem 0 1rem 0;
+  padding: 2rem 2.5rem 1rem 1rem;
+  color: var(--main-text-color);
 }
 
 .table-header {
   background: var(--header-color);
   color: var(--header-text-color);
-}
-
-.table-row {
   height: 50px;
   border-bottom: 1px solid var(--border-color);
 }
 
 .table-cell {
   text-align: center;
+  color: var(--main-text-color);
 }
 
 .table-cell-checkbox {

@@ -101,6 +101,8 @@ export default {
 .table-row {
   height: 50px;
   border-bottom: 1px solid var(--border-color);
+  background: var(--zebra-color);
+  color: var(--main-text-color);
 }
 
 .table-cell {
