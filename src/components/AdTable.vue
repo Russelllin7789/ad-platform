@@ -54,6 +54,38 @@
                 alt="menu"
               />
               <!-- menu -->
+              <!-- 運用 aria 屬性，增進網頁無障礙的使用體驗，labelledby 可綁定 toogle 元素的 id -->
+              <div
+                class="action-menu hidden"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="action-input-1"
+                id="action-menu-1"
+              >
+                <menu class="menu-body">
+                  <menuitem class="menu-item">
+                    <img
+                      src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/duplicate.svg"
+                      class="menu-item-icon"
+                    />
+                    <span>Duplicate</span>
+                  </menuitem>
+                  <menuitem class="menu-item">
+                    <img
+                      src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/edit.svg"
+                      class="menu-item-icon"
+                    />
+                    <span>Edit</span>
+                  </menuitem>
+                  <menuitem class="menu-item">
+                    <img
+                      src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/delete.svg"
+                      class="menu-item-icon"
+                    />
+                    <span>Delete</span>
+                  </menuitem>
+                </menu>
+              </div>
             </td>
           </tr>
         </tbody>
